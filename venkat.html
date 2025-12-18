@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venkatnath L | Senior Manager - Software Development</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --accent-primary: #0ea5e9;
+            --accent-secondary: #1e3a8a;
+            --border-color: #e2e8f0;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --card-bg: #ffffff;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --accent-primary: #38bdf8;
+            --accent-secondary: #60a5fa;
+            --border-color: #334155;
+            --shadow: rgba(0, 0, 0, 0.3);
+            --card-bg: #1e293b;
+            --success: #34d399;
+            --warning: #fbbf24;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            box-shadow: 0 2px 10px var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-primary);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-primary);
+            transform: translateY(-2px);
+        }
+
+        .theme-toggle {
+            background: var(--accent-primary);
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 2rem 2rem;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            opacity: 0.1;
+            top: -250px;
+            right: -250px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: var(--accent-secondary);
+            border-radius: 50%;
+            opacity: 0.08;
+            bottom: -200px;
+            left: -200px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .hero-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid var(--accent-primary);
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: transform 0.5s ease;
+            color: white;
+            font-weight: bold;
+        }
+
+        .hero-image:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            animation: slideDown 0.8s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h2 {
+            font-size: 1.8rem;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            animation: slideUp 0.8s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--accent-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px var(--shadow);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent-primary);
+            border: 2px solid var(--accent-primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--text-primary);
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent-primary);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .about-text h3 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 40px var(--shadow);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--accent-primary);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--accent-primary);
+        }
+
+        .timeline-item {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            position: relative;
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3.75rem;
+            top: 2rem;
+            width: 20px;
+            height: 20px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            border: 4px solid var(--bg-primary);
+        }
+
+        .timeline-date {
+            color: var(--accent-primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .timeline-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .timeline-company {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .timeline-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-highlights {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .timeline-highlights li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .timeline-highlights li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: 0 15px 40px var(--shadow);
+        }
+
+        .skill-category h3 {
+            color: var(--accent-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            border-radius: 10px;
+            transition: width 1s ease;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .project-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 50px var(--shadow);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: var(--bg-secondary);
+            color: var(--accent-primary);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-content > p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .contact-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+
+        .contact-item strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+        }
+
+        .contact-item a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero h2 {
+                font-size: 1.3rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline {
+                padding-left: 2rem;
+            }
+
+            .projects-grid,
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+        }
+
+        /* Scroll Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">VL</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><button class="theme-toggle" id="themeToggle">🌙 Dark</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-image">VL</div>
+            <h1>Venkatnath L</h1>
+            <h2>Senior Manager - Software Development</h2>
+            <p>Certified Scrum Master & PMO Expert with 23+ years of experience in managing OSS/BSS telecom applications, leading digital transformation initiatives, and driving innovation in cloud-based platforms.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                <a href="https://www.linkedin.com/in/venkatnath-l-3a5a7321/" target="_blank" class="btn btn-secondary">LinkedIn Profile</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="fade-in">About Me</h2>
+        <div class="about-content fade-in">
+            <div class="about-text">
+                <h3>Professional Summary</h3>
+                <p>I am a seasoned technology leader with over two decades of experience in telecommunications, software development, and program management. Currently serving as Senior Manager at Verizon, I specialize in managing complex OSS/BSS telecom applications and leading cross-functional teams.</p>
+                <br>
+                <p>My expertise spans across cloud migration, billing systems, e-commerce platforms, and agile methodologies. I have successfully led the migration of mainframe-based legacy systems to cloud-based platforms, maintaining accuracy for 120M+ subscribers.</p>
+                <br>
+                <p>As a Certified Scrum Master, I bring strong leadership in PMO strategy, project delivery, and stakeholder management, consistently driving projects from conceptualization to successful execution.</p>
+            </div>
+            <div class="about-stats">
+                <div class="stat-card">
+                    <span class="stat-number">23+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">120M+</span>
+                    <span class="stat-label">Subscribers Managed</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">CSM</span>
+                    <span class="stat-label">Certified Scrum Master</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">Global</span>
+                    <span class="stat-label">Telco Projects</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2 class="fade-in">Professional Experience</h2>
+        <div class="timeline fade-in">
+            <div class="timeline-item">
+                <div class="timeline-date">September 2022 - Present (3+ years)</div>
+                <div class="timeline-title">Senior Manager - Software Development</div>
+                <div class="timeline-company">Verizon | Chennai, Tamil Nadu, India</div>
+                <div class="timeline-description">
+                    Leading software development initiatives for telecommunications infrastructure and managing critical OSS/BSS applications that serve millions of subscribers globally.
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">April 2020 - August 2022 (2 years 5 months)</div>
+                <div class="timeline-title">Director</div>
+                <div class="timeline-company">Apptium Technologies | Chennai, Tamil Nadu</div>
+                <div class="timeline-description">
+                    Served as Program Management Office lead for e-Commerce Marketplace covering SaaS, Cloud, and Telco Products for BSS systems of major global telecom companies.
+                </div>
+                <ul class="timeline-highlights">
+                    <li>Defined PMO strategy and led implementation of common project management methodology and tools</li>
+                    <li>Led teams of Business Analysts, Project Managers, and Application Development including QA</li>
+                    <li>Managed project interdependencies and stakeholder communications for effective delivery</li>
+                    <li>Captured requirements, prepared SOW & project plans; managed Product Roadmap for Cloud Commerce Platform</li>
+                    <li>Served as Jira Admin & Scrum Master, establishing project structures, workflows, and KPI dashboards</li>
+                    <li>Monitored capacity/demand needs and assessed maintenance & enhancement activities</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">July 2007 - April 2020 (12 years 10 months)</div>
+                <div class="timeline-title">Technical Manager</div>
+                <div class="timeline-company">Verizon Data Services | Chennai Area, India</div>
+                <div class="timeline-description">
+                    Managed team supporting Wireless Billing System and led migration of mainframe-based legacy billing system to cloud-based open-source platform.
+                </div>
+                <ul class="timeline-highlights">
+                    <li>Maintained billing accuracy for 120M subscribers by monitoring production cycles & fallouts</li>
+                    <li>Led project teams to accomplish objectives within constraints while ensuring clarity of responsibilities</li>
+                    <li>Administered complex technical projects and coordinated with Project Managers</li>
+                    <li>Mapped requirements across clients, Service Providers, Senior Management, and stakeholders</li>
+                    <li>Developed comprehensive management plans covering resources, budget, schedules, and deliverables</li>
+                    <li>Played pivotal role in setting up Offshore team</li>
+                    <li>Provided end-to-end project management from conceptualization to final execution</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">September 2001 - June 2007 (5 years 10 months)</div>
+                <div class="timeline-title">Onsite Coordinator</div>
+                <div class="timeline-company">Cognizant | Chennai, Minneapolis & Hartford</div>
+                <div class="timeline-description">
+                    Managed testing programs and coordinated development teams for DOS-based to web-based system migrations.
+                </div>
+                <ul class="timeline-highlights">
+                    <li>Managed Testing Program for Commercial Insurance Policy System migration</li>
+                    <li>Prepared comprehensive Test Plans with scenarios, test cases, and test data</li>
+                    <li>Executed UI & Functional test cases for progression and regression coverage</li>
+                    <li>Tracked test execution progress aligned with planned trajectory</li>
+                    <li>Coordinated across Business Analysts, GUI developers, and Content department</li>
+                    <li>Initiated automation activities using QTP for health check processes</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="fade-in">Skills & Expertise</h2>
+        <div class="skills-grid fade-in">
+            <div class="skill-category">
+                <h3>☁️ Cloud & Infrastructure</h3>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Amazon Web Services (AWS)</span>
+                        <span>95%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Cloud Migration</span>
+                        <span>92%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 92%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Unix/Linux</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>📊 Program & Project Management</h3>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>PMO Leadership</span>
+                        <span>95%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Agile/Scrum Master</span>
+                        <span>93%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 93%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Jira Administration</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>📡 Telecom & BSS/OSS</h3>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>BSS/OSS Systems</span>
+                        <span>95%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Billing Systems</span>
+                        <span>92%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 92%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Wireless Networks</span>
+                        <span>88%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 88%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>💼 Leadership & Strategy</h3>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Team Leadership</span>
+                        <span>93%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 93%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Stakeholder Management</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Strategic Planning</span>
+                        <span>88%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 88%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>🛠️ Development & Testing</h3>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>QA & Testing</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Test Automation (QTP)</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Software Development</span>
+                        <span>87%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 87%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>💻 Platforms & Tools</h3>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>SaaS Platforms</span>
+                        <span>88%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 88%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>E-Commerce Systems</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Mainframe to Cloud</span>
+                        <span>92%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 92%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="fade-in">Key Projects & Achievements</h2>
+        <div class="projects-grid fade-in">
+            <div class="project-card">
+                <div class="project-image">☁️</div>
+                <div class="project-content">
+                    <div class="project-title">Legacy Billing System Migration</div>
+                    <div class="project-description">
+                        Led the migration of mainframe-based legacy billing system to cloud-based open-source platform, maintaining 100% billing accuracy for 120 million subscribers while monitoring production cycles and managing fallouts.
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">Cloud Migration</span>
+                        <span class="tag">AWS</span>
+                        <span class="tag">Billing Systems</span>
+                        <span class="tag">120M Users</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">🛒</div>
+                <div class="project-content">
+                    <div class="project-title">E-Commerce Marketplace Platform</div>
+                    <div class="project-description">
+                        Served as PMO lead for global e-Commerce marketplace supporting SaaS, Cloud, and Telco products. Managed product roadmap, captured requirements, and prepared SOW for international clients across major telecom BSS systems.
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">E-Commerce</span>
+                        <span class="tag">SaaS</span>
+                        <span class="tag">Global Telco</span>
+                        <span class="tag">PMO</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">🏢</div>
+                <div class="project-content">
+                    <div class="project-title">Offshore Team Setup</div>
+                    <div class="project-description">
+                        Played pivotal role in establishing offshore development teams, including transitioning NBBE application back in-house from software service provider. Managed resource demands and coordinated global team structures.
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">Team Building</span>
+                        <span class="tag">Offshore</span>
+                        <span class="tag">Resource Management</span>
+                        <span class="tag">Leadership</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">📊</div>
+                <div class="project-content">
+                    <div class="project-title">Agile Transformation & Jira Implementation</div>
+                    <div class="project-description">
+                        Established comprehensive Agile framework as Scrum Master and Jira Administrator. Set up project structures, workflows, dashboards, and automated KPI reports for multiple concurrent projects across development teams.
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">Agile/Scrum</span>
+                        <span class="tag">Jira</span>
+                        <span class="tag">KPI Dashboards</span>
+                        <span class="tag">Process</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">🧪</div>
+                <div class="project-content">
+                    <div class="project-title">Insurance System Modernization</div>
+                    <div class="project-description">
+                        Managed testing program for migration of DOS-based Commercial Insurance Policy System to web-based platform. Led development and system test teams, prepared comprehensive test plans, and initiated QTP automation.
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">Testing</span>
+                        <span class="tag">Modernization</span>
+                        <span class="tag">Automation (QTP)</span>
+                        <span class="tag">Insurance</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">🎯</div>
+                <div class="project-content">
+                    <div class="project-title">PMO Strategy & Methodology</div>
+                    <div class="project-description">
+                        Defined and implemented enterprise-wide PMO strategy including common project management methodologies, standards, and tools. Managed interdependencies across multiple projects while ensuring effective stakeholder communication.
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">PMO Strategy</span>
+                        <span class="tag">Methodology</span>
+                        <span class="tag">Standards</span>
+                        <span class="tag">Governance</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="fade-in">Get In Touch</h2>
+        <div class="contact-content fade-in">
+            <p>I'm always interested in connecting with fellow professionals, discussing new opportunities, and collaborating on innovative projects in telecommunications, cloud computing, and program management.</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <strong>📍 Location</strong><br>
+                    Greater Chennai Area, India
+                </div>
+                <div class="contact-item">
+                    <strong>💼 LinkedIn</strong><br>
+                    <a href="https://www.linkedin.com/in/venkatnath-l-3a5a7321/" target="_blank">linkedin.com/in/venkatnath-l-3a5a7321</a>
+                </div>
+                <div class="contact-item">
+                    <strong>🏢 Current Role</strong><br>
+                    Senior Manager - Software Dev<br>
+                    Verizon
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Venkatnath L. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Certified Scrum Master | PMO Expert | 23+ Years in Telecom & Software Development</p>
+    </footer>
+
+    <script>
+        // Theme Toggle with localStorage
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or default to light
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', currentTheme);
+        updateThemeButton(currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const theme = html.getAttribute('data-theme');
+            const newTheme = theme === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeButton(newTheme);
+        });
+
+        function updateThemeButton(theme) {
+            themeToggle.textContent = theme === 'light' ? '🌙 Dark' : '☀️ Light';
+        }
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll Animation - Intersection Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Animate skill bars on scroll
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const skillProgress = entry.target.querySelectorAll('.skill-progress');
+                    skillProgress.forEach(bar => {
+                        const width = bar.style.width;
+                        bar.style.width = '0';
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 100);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.skill-category').forEach(el => {
+            skillObserver.observe(el);
+        });
+
+        // Add active state to nav links on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.style.color = '';
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.style.color = 'var(--accent-primary)';
+                }
+            });
+        });
+
+        // Mobile Menu Toggle (for smaller screens)
+        const logo = document.querySelector('.logo');
+        logo.addEventListener('dblclick', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
